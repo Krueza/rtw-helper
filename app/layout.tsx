@@ -14,7 +14,10 @@ import { NavbarSimpleColored } from '@/components/NavbarSimpleColored/NavbarSimp
 // };
 
 export default function RootLayout({ children }: { children: any }) {
-  const [opened, { toggle }] = useDisclosure();
+  const [opened, { toggle }] = useDisclosure(Boolean(sessionStorage.getItem('selectedOption')));
+  
+  // opened = sessionStorage.getItem('selectedOption')
+
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
@@ -33,7 +36,12 @@ export default function RootLayout({ children }: { children: any }) {
             padding="md">
             <AppShell.Header>
               <Group h="100%" px="md">
-                <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+                <Burger opened={opened} onClick={() => {
+                  toggle();
+                  console.log(opened);
+                  sessionStorage.setItem('selectedOption', `${opened}`)
+                }}
+                  hiddenFrom="sm" size="sm" />
                 <a href='/'>
                 <Image
                   src="/img/rtw.png"

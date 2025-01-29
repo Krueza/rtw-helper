@@ -38,7 +38,7 @@
     font-weight: 500;
   
     @mixin hover {
-      background-color: var(--mantine-color-blue-7);
+      background-color: #810705;
       color: var(--mantine-color-white);
   
       .linkIcon {
@@ -51,10 +51,10 @@
       &:hover {
         box-shadow: var(--mantine-shadow-sm);
         background-color: var(--mantine-color-white);
-        color: var(--mantine-color-blue-filled);
+        color: #810705;
   
         .linkIcon {
-          color: var(--mantine-color-blue-filled);
+          color: #810705;
         }
       }
     }

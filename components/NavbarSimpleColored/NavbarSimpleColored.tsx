@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
   IconBookDownload,
   IconCoin,
+  IconStars,
   IconUser,
 } from '@tabler/icons-react';
 import { Code, Group } from '@mantine/core';
@@ -10,7 +11,8 @@ import classes from './NavbarSimpleColored.module.css';
 const data = [
     { link: '/calculator', label: 'Purchase Calculator', icon: IconCoin },
     { link: '/agents', label: 'Agents', icon: IconUser },
-  ];
+    { link: '/generals', label: 'Generals', icon: IconStars },
+];
 
 export function NavbarSimpleColored() {
   const [active, setActive] = useState('Billing');

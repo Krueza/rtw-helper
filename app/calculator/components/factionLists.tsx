@@ -79,7 +79,6 @@ export const Rome = [
     { name: "Developmet (worth 2)", cost: 2 },
     { name: "Developmet (worth 3)", cost: 3 },
     { name: "Developmet (worth 4)", cost: 4 },
-    { name: "Developmet (worth 5)", cost: 5 },
   ];
 
   export const Greece = [
@@ -109,5 +108,4 @@ export const Rome = [
     { name: "Developmet (worth 2)", cost: 2 },
     { name: "Developmet (worth 3)", cost: 3 },
     { name: "Developmet (worth 4)", cost: 4 },
-    { name: "Developmet (worth 5)", cost: 5 },
   ];

@@ -12,8 +12,6 @@ type Dictionary = { [key: string]: number };
 const purchases: Dictionary = {
 };
 
-var totalCost = 0;
-
 export default function Calculator({elements}: {elements: Purchase[]}) {
   const [state, setState] = useState({
     totalCost: 0,
