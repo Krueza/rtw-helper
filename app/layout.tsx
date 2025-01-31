@@ -18,7 +18,7 @@ import ColorSchemeToggleIcon from '@/components/ColorSchemeToggleIcon/ColorSchem
 
 
 export default function RootLayout({ children }: { children: any }) {
-  const initialOpenedState = Boolean(sessionStorage.getItem('initialOpenedState'));
+  // const initialOpenedState = Boolean(sessionStorage.getItem('initialOpenedState'));
   const [opened, { toggle }] = useDisclosure();
   
   return (
