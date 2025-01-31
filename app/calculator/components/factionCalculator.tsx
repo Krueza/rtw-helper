@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Table, Button } from '@mantine/core';
+import { Table, Button, Center } from '@mantine/core';
 import { IconHexagonPlus, IconHexagonMinus } from '@tabler/icons-react';
+import classes  from './factionCalculator.module.css'
 
 export type Purchase = {
   name: string;
@@ -12,7 +13,7 @@ type Dictionary = { [key: string]: number };
 const purchases: Dictionary = {
 };
 
-export default function Calculator({elements}: {elements: Purchase[]}) {
+export default function FactionCalculator({elements}: {elements: Purchase[]}) {
   const [state, setState] = useState({
     totalCost: 0,
     purchases: purchases,
@@ -47,34 +48,39 @@ export default function Calculator({elements}: {elements: Purchase[]}) {
   const rows = elements.map((element) => (
     <Table.Tr
       key={element.name}
+      style={{textAlign: "center"}}
     >
       <Table.Td>{element.name}</Table.Td>
       <Table.Td style={{textAlign: "center"}}>{element.cost}</Table.Td>
       <Table.Td style={{textAlign: "center"}}><span>{state.purchases[element.name]}</span></Table.Td>
       <Table.Td>
-        <Button rightSection={<IconHexagonPlus/>} onClick={() => incrementValue(element.name, element.cost)}></Button>
+        <Button className={classes.redbutton} onClick={() => incrementValue(element.name, element.cost)}><IconHexagonPlus/></Button>
       </Table.Td>
-      <Table.Td>
-        <Button rightSection={<IconHexagonMinus/>} onClick={() => decrementValue(element.name, element.cost)}></Button>
+      <Table.Td style={{textAlign: "center"}}>
+        <Button className={classes.redbutton} onClick={() => decrementValue(element.name, element.cost)}><IconHexagonMinus/></Button>
       </Table.Td>
     </Table.Tr>
   ));
 
   return (
     <>
-      <span>Total cost: {state.totalCost} </span>
-      <Table> 
-        <Table.Thead>
-          <Table.Tr>
-            <Table.Th style={{width: "30%"}}>Purchase</Table.Th>
-            <Table.Th style={{width: "30px"}}>Cost</Table.Th>
-            <Table.Th style={{width: "30px"}}>Count</Table.Th>
-            <Table.Th style={{width: "30px"}}></Table.Th>
-            <Table.Th style={{width: "30px"}}></Table.Th>
-          </Table.Tr>
-        </Table.Thead>
-        <Table.Tbody>{rows}</Table.Tbody>
-      </Table>
+      <div style={{width: "100%", marginTop: "20px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div style={{width: "100%", maxWidth: "1000px" }}>
+          <span>Total cost: {state.totalCost} </span>
+          <Table style={{maxWidth: "1000px"}}> 
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th style={{width: "70%"}}>Purchase</Table.Th>
+                <Table.Th style={{width: "10%"}}>Cost</Table.Th>
+                <Table.Th style={{width: "10%"}}>Count</Table.Th>
+                <Table.Th w="5%"></Table.Th>
+                <Table.Th w="5%"></Table.Th>
+              </Table.Tr>
+            </Table.Thead>
+            <Table.Tbody>{rows}</Table.Tbody>
+          </Table>
+        </div>
+      </div>
     </>
   );
 }

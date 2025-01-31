@@ -51,6 +51,10 @@ export function NavbarSimpleColored() {
           <IconBookDownload className={classes.linkIcon} stroke={1.5} />
           Battle Play Rules
         </a>
+        <a href="/rules/solo" className={classes.link}>
+          <IconBookDownload className={classes.linkIcon} stroke={1.5} />
+          Solo Play Rules
+        </a>
       </div>
     </nav>
   );

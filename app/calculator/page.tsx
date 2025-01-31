@@ -1,72 +1,53 @@
 'use client'
 
 import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-import Calculator from './components/calculator';
+import { Avatar, Tabs } from '@mantine/core';
+import Calculator from './components/factionCalculator';
 import * as factionLists from './components/factionLists';
-import classes from './calculator.module.css';
+import classes from './Calculator.module.css';
+import { IconPhoto, IconMessageCircle, IconSettings } from '@tabler/icons-react';
 
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
-
-function CustomTabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
+export default function Page() {
   return (
-    <div
-      className='content'
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-    </div>
-  );
-}
-
-function a11yProps(index: number) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-export default function BasicTabs() {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
-
-  return (
-    <Box>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" classNames={classes}>
-          <Tabs.Tab label="Rome" {...a11yProps(0)} />
-          <Tab label="Carthage" {...a11yProps(1)} />
-          <Tab label="Greece" {...a11yProps(2)} />
-          <Tab label="Barbarians" {...a11yProps(3)} />
-        </Tabs>
-      </Box>
-      <CustomTabPanel value={value} index={0}>
+    <Tabs variant="unstyled" defaultValue="Rome" classNames={classes}>
+      <Tabs.List grow>
+        <Tabs.Tab
+          value="Rome"
+          leftSection={<Avatar src="./img/factions/fac_rome.webp" size={20} />}
+        >
+          Rome
+        </Tabs.Tab>
+        <Tabs.Tab
+          value="Carthage"
+          leftSection={<Avatar src="./img/factions/fac_carthage.webp" size={20} />}
+        >
+          Carthage
+        </Tabs.Tab>
+        <Tabs.Tab
+          value="Greece"
+          leftSection={<Avatar src="./img/factions/fac_greece.webp" size={20} />}
+        >
+          Greece
+        </Tabs.Tab>
+        <Tabs.Tab
+          value="Barbarians"
+          leftSection={<Avatar src="./img/factions/fac_barbarians.webp" size={20} />}
+        >
+          Barbarians
+        </Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value='Rome'>
         <Calculator elements={factionLists.Rome} />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
+      </Tabs.Panel>
+      <Tabs.Panel value='Carthage'>
         <Calculator elements={factionLists.Carthage} />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
+      </Tabs.Panel>
+      <Tabs.Panel value='Greece'>
         <Calculator elements={factionLists.Greece} />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={3}>
+      </Tabs.Panel>
+      <Tabs.Panel value='Barbarians'>
         <Calculator elements={factionLists.Barbarians} />
-      </CustomTabPanel>
-    </Box>
+      </Tabs.Panel>
+    </Tabs>
   );
 }

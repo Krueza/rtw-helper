@@ -18,7 +18,7 @@ const elements : Trait[] = [
     },
     {
         name: "Battlefield Expert",
-        description: "ncrease or decrease the difficult terrain by one level."
+        description: "Increase or decrease the difficult terrain by one level."
     },
     {
         name: "Morale Booster",

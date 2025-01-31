@@ -3,21 +3,24 @@
 import '@mantine/core/styles.css';
 
 import React, { Children } from 'react';
-import { AppShell, Burger, ColorSchemeScript, Group, Image, mantineHtmlProps, MantineProvider, Skeleton } from '@mantine/core';
+import { AppShell, Burger, ColorSchemeScript, Group, Image, mantineHtmlProps, MantineProvider, Skeleton, useMantineColorScheme } from '@mantine/core';
 import { theme } from '../theme';
 import { useDisclosure } from '@mantine/hooks';
 import { NavbarSimpleColored } from '@/components/NavbarSimpleColored/NavbarSimpleColored';
+import { IconMoon, IconSun } from '@tabler/icons-react';
+import ColorSchemeToggleIcon from '@/components/ColorSchemeToggleIcon/ColorSchemeToggleIcon';
 
 // export const metadata = {
 //   title: 'Mantine Next.js template',
 //   description: 'I am using Mantine with Next.js!',
 // };
 
-export default function RootLayout({ children }: { children: any }) {
-  const [opened, { toggle }] = useDisclosure(Boolean(sessionStorage.getItem('selectedOption')));
-  
-  // opened = sessionStorage.getItem('selectedOption')
 
+
+export default function RootLayout({ children }: { children: any }) {
+  const initialOpenedState = Boolean(sessionStorage.getItem('initialOpenedState'));
+  const [opened, { toggle }] = useDisclosure();
+  
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
@@ -38,8 +41,7 @@ export default function RootLayout({ children }: { children: any }) {
               <Group h="100%" px="md">
                 <Burger opened={opened} onClick={() => {
                   toggle();
-                  console.log(opened);
-                  sessionStorage.setItem('selectedOption', `${opened}`)
+                  // sessionStorage.setItem('initialOpenedState', `${opened}`)
                 }}
                   hiddenFrom="sm" size="sm" />
                 <a href='/'>
@@ -47,6 +49,10 @@ export default function RootLayout({ children }: { children: any }) {
                   src="/img/rtw.png"
                   height="50px" />
               </a>
+              <ColorSchemeToggleIcon />
+              </Group>
+              <Group>
+
               </Group>
             </AppShell.Header>
             <AppShell.Navbar>

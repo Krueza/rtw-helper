@@ -4,7 +4,6 @@
     padding: var(--mantine-spacing-md);
     display: flex;
     flex-direction: column;
-    /* border: 1px solid #050505; */
   }
   
   .navbarMain {
@@ -32,17 +31,17 @@
     align-items: center;
     text-decoration: none;
     font-size: var(--mantine-font-size-sm);
-    color: var(--mantine-color-white);
+    color: light-dark(var(--mantine-color-dark-4), var(--mantine-color-white));
     padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
     border-radius: var(--mantine-radius-sm);
     font-weight: 500;
   
     @mixin hover {
       background-color: #810705;
-      color: var(--mantine-color-white);
+      color: light-dark(var(--mantine-color-dark-4), var(--mantine-color-white));
   
       .linkIcon {
-        color: var(--mantine-color-white);
+        color:light-dark(var(--mantine-color-dark-4), var(--mantine-color-white));
       }
     }
   
@@ -51,10 +50,10 @@
       &:hover {
         box-shadow: var(--mantine-shadow-sm);
         background-color: var(--mantine-color-white);
-        color: #810705;
+        color: var(--mantine-color-dark-4);
   
         .linkIcon {
-          color: #810705;
+          color: var(--mantine-color-dark-4);
         }
       }
     }
