@@ -9,6 +9,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { NavbarSimpleColored } from '@/components/NavbarSimpleColored/NavbarSimpleColored';
 import { IconMoon, IconSun } from '@tabler/icons-react';
 import ColorSchemeToggleIcon from '@/components/ColorSchemeToggleIcon/ColorSchemeToggleIcon';
+import { Console } from 'console';
 
 // export const metadata = {
 //   title: 'Mantine Next.js template',
@@ -35,7 +36,11 @@ export default function RootLayout({ children }: { children: any }) {
         <MantineProvider theme={theme}>
           <AppShell
             header={{ height: 60 }}
-            navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: !opened } }}
+            navbar={{ 
+              width: 300, 
+              breakpoint: 'sm', 
+              collapsed: { mobile: !opened } 
+            }}
             padding="md">
             <AppShell.Header>
               <Group h="100%" px="md">
@@ -49,7 +54,7 @@ export default function RootLayout({ children }: { children: any }) {
                   src="/img/rtw.png"
                   height="50px" />
               </a>
-              <ColorSchemeToggleIcon />
+              {/* <ColorSchemeToggleIcon /> */}
               </Group>
               <Group>
 

@@ -1,3 +1,5 @@
+'use client'
+
 import { useMantineColorScheme } from "@mantine/core";
 import { IconMoon, IconSun } from "@tabler/icons-react";
 
